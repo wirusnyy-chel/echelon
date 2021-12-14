@@ -8,5 +8,5 @@ import (
 )
 
 func getCMD(ctx context.Context, commands ...string) *exec.Cmd {
-	return exec.CommandContext(ctx, commands...)
+	return exec.CommandContext(ctx, commands[0], commands[1:]...)
 }
