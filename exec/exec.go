@@ -3,7 +3,6 @@ package exec
 import (
 	"bytes"
 	"context"
-	"log"
 	"runtime"
 	"strings"
 )
@@ -20,7 +19,7 @@ func RunCommand(ctx context.Context, command, os, stdin string) (string, string)
 	cmd.Stdin = stdinReader
 	err := cmd.Run()
 	if err != nil {
-		log.Println(err)
+		stderr.WriteString(err.Error())
 	}
 	return stdout.String(), stderr.String()
 }
