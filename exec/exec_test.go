@@ -37,9 +37,9 @@ func TestRunCommand(t *testing.T) {
 		tests = LinuxTests
 	}
 	for _, v := range tests {
-		got1, got2 := RunCommand(context.Background(), v.command, v.os, v.stdin)
-		if (got1 != "") != v.stdout || (got2 != "") != v.stderr {
-			t.Errorf("test:%v", v)
+		out, err := RunCommand(context.Background(), v.command, v.os, v.stdin)
+		if (out != "") != v.stdout || (err != "") != v.stderr {
+			t.Errorf("test:%v,\n result: out:%v,err:%v", v, out, err)
 		}
 	}
 
