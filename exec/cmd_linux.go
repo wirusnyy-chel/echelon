@@ -4,7 +4,6 @@ package exec
 
 import (
 	"context"
-	"log"
 	"os/exec"
 )
 
