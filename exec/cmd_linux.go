@@ -7,6 +7,6 @@ import (
 	"os/exec"
 )
 
-func getCMD(ctx context.Context) *exec.Cmd {
-	return exec.Command("bash")
+func getCMD(ctx context.Context, commads ...string) *exec.Cmd {
+	return exec.CommandContext(ctx, commands...)
 }

@@ -12,9 +12,8 @@ func RunCommand(ctx context.Context, command, os, stdin string) (string, string)
 	if os != runtime.GOOS {
 		return "", ""
 	}
-	cmd := getCMD(ctx)
+	cmd := getCMD(ctx, strings.Fields(command)...)
 	var stdout, stderr bytes.Buffer
-	cmd.Args = append(cmd.Args, strings.Fields(command)...)
 	stdinReader := strings.NewReader(stdin)
 	cmd.Stdout = &stdout
 	cmd.Stderr = &stderr
